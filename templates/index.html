@@ -1,0 +1,44 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/main.js"></script>
+    <title>Reminder Flow</title>
+ </head>
+ <body class="body">
+    <div id="add_reminder_menu">
+        <form id="add_reminder_form" action="/add_reminder" method="POST">
+            <input type="text" id="reminder_text_input" name="reminder_title" placeholder="Enter your reminder title" required>
+            <input type="text" id="reminder_text_input" name="reminder_text" placeholder="Enter your reminder desc." required>
+            <input type="date" id="reminder_time_input" name="reminder_time" required>
+            <button type="submit" id="submit_reminder_button"></button>
+        </form>
+    </div>
+
+    <div id="reminders_list">
+        {% for reminder in reminders %}
+        
+            <div class="reminder_item" data-reminder-id="{{ reminder.id }}">
+                <button class="delete_button"></button>
+                <h2 class="reminder_title">{{ reminder.title }}</h2>
+                <p class="reminder_text">{{ reminder.text }}</p>
+                <p class="reminder_time">{{ reminder.time }}</p>
+            </div>
+        {% endfor %}
+
+    <footer id="footer">
+        <div class="footer_buttons">
+            <button class="reminders_button"></button>
+            <button class="add_button" id="add_button"></button>
+        </div>
+    </footer>
+    <footer id="closer">
+        <button id="close_button"></button>
+    </footer>
+    
+        
+    
+ </body>
+ </html>

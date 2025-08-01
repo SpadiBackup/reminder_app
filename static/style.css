@@ -1,0 +1,266 @@
+@keyframes menuFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes MenufadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+}
+
+
+.body {
+    background-image: url(/static/background.png);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+.footer_buttons
+{
+    /* gradient background */
+    background: linear-gradient(to top, #f8148a, #7915ce);
+    text-align: center;
+    padding: 10px;
+    border: none;
+    border-radius: 19px;
+    position: fixed;
+    bottom: 0;
+    left: 35px;
+    width: 75%;
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center;     /* Center items vertically */
+    gap: 30px;               /* Space between buttons */
+}
+
+#closer
+    {
+    background: linear-gradient(to top, #f8148a, #7915ce);
+    background-image: url('/static/menu_icon.png');
+    border: none;
+    width: 88px;
+    height: 84px;
+    scale: 0.3;
+    bottom: 20%;
+    position: absolute;
+    left: 85%;
+    position: fixed;
+    top: 93%;
+}
+
+
+
+.add_button,
+.reminders_button {
+    /* very cool icon */
+    color: #dbdbdb;
+    background-color: transparent;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+#footer {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.1s;
+    pointer-events: auto;
+    display: flex;
+}
+
+#footer.hiding {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s;
+    pointer-events: none;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#footer.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.2s;
+}
+
+
+.add_button {
+    background-image: url('/static/add_icon.png');
+}
+
+.reminders_button {
+    background-image: url('/static/reminders_icon.png');
+}
+
+
+#add_reminder_menu {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+#add_reminder_menu.active{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    margin-top: 610px;
+    background: linear-gradient(to bottom, #f8148a, #7915ce);
+    position: fixed;
+    padding: 25px;
+    border-radius: 19px;
+    animation: menuFadeIn 0.4s cubic-bezier(.4,2,.6,1) both;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#add_reminder_menu.hiding {
+    animation: MenufadeOut 0.4s cubic-bezier(.4,2,.6,1) both;
+}
+
+#submit_reminder_button {
+    background-image: url('/static/add_icon.png');
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    
+    
+}
+
+#reminder_text_input {
+    width: 65%;
+    padding: 5px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    /* really cool font */
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    transition: width, height 0.2s ease;
+    height: 15px;
+}
+
+#reminder_text_input:focus {
+    border-radius: 3px;
+    outline: none;
+    border-color: #a51ef3;
+    /* make it bigger */
+    height: 50px;
+    width: 90%;
+    transition: width, height 0.2s ease;
+    box-shadow: 0 0 5px rgba(165, 30, 243, 0.5);
+
+}
+
+
+#reminder_time_input {
+    width: 65%;
+    padding: 5px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    /* really cool font */
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+#reminders_list {
+    overflow-y:visible;
+    padding-bottom: 20px;
+    color: white;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 19px;
+    list-style-type: none;
+    width: 256px;
+    margin: 0;
+    padding-left: 61px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 50px;
+    align-items: center;
+}
+
+.reminder_item {
+    animation: MenufadeIn 0.4s cubic-bezier(.4,2,.6,1) both;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+    /* add a really cool outline */
+    outline: 2px solid #f8148a;
+    border-radius: 19px;
+    height: 150px;
+    background-color: #7915ce;
+    width: 256px;
+}
+
+.reminder_title {
+    font-weight: bold;
+    color: #f8148a;
+    margin-right: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.reminder_text {
+    flex-grow: 1;
+    margin-right: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.reminder_time {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+/* TODO: add a delete button */
+.delete_button {
+    background-image: url('/static/add_icon.png');
+    rotate: 0deg;
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+    border: none;
+    display: flex;
+    align-items: right;
+
+}
+
+
